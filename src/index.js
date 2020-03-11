@@ -13,7 +13,7 @@ const App = () => {
    const [darkmode, setDarkMode] = useLocalStorageState("darkmode", false);
 
    const toggleDarkMode = () => {
-      setDarkMode(currentMode => !currentMode);
+      setDarkMode(!darkmode);
    };
 
    useEffect(() => {
@@ -27,7 +27,7 @@ const App = () => {
 
    return (
       <div className={`App ${darkmode ? "dark-mode" : {}}`}>
-         <Navbar toggleDarkMode={toggleDarkMode} />
+         <Navbar darkmode={darkmode} toggleDarkMode={toggleDarkMode} />
          <Charts coinData={coinData} />
       </div>
    );
